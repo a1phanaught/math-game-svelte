@@ -1,6 +1,6 @@
 <script>
 
-    import Math from "./math.svelte";
+    import Math from "./Math.svelte";
 
     let start = false;
     // difficulty string is shared with <Math/>
@@ -22,14 +22,24 @@
     }
     
 </script>
-
 {#if start != true}
-    <h2>Mental Arithmetic?</h2>
-    <p>How well do you fare in mental math?</p>
-    <button on:click = {startGameEasy}>Beginner (High School Student)</button>
-    <button on:click = {startGameMedium}>Intermediate (Accountant)</button>
-    <button on:click = {startGameHard}>Expert (Asian)</button>
+    <div id="startScreen">
+        <br>
+        <h2>Mental Arithmetic?</h2>
+        <p>How well do you fare in mental math?</p>
+        <button on:click = {startGameEasy}>Beginner (High School Student)</button>
+        <button on:click = {startGameMedium}>Intermediate (Accountant)</button>
+        <button on:click = {startGameHard}>Expert (Asian)</button>
+    </div>
 {:else}
     <Math difficulty={difficultyChosen}></Math>
 {/if}
 
+<style>
+    #startScreen {
+        background-color: antiquewhite;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+    }
+</style>

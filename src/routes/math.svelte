@@ -1,13 +1,14 @@
 <script>
     import Page from "./+page.svelte";
+    import EndScreen from "./EndScreen.svelte";
     import functions, {getRandomInt, getRandomOperation, getResultValue, sleep} from "./functions.svelte";
 
     export let difficulty;
+    let score = 0.0;
 
     const timeout = async ms => new Promise(res => setTimeout(res, ms));
     let next = false;
 
-    let score = 0.0;
     let scoreStreakMultiplier = 1.0;
     let questionString = "";
     // HAHAHAHA
@@ -16,7 +17,6 @@
     let answers;
     let correct = false;
     let start = true;
-    let returnToMainPage = false;
     let waitTime = 5000;
     let timeLeft;
 
@@ -158,7 +158,7 @@
 {#if start == true}
     <div id="wrapper">
         <div id="timeBar" style="width: {seconds/waitTime * 100}% !important"></div>
-        <div id="content">
+        <div class="content">
             <br>
             <h3>Lives left: {heartString}</h3>
             <p>Score: {score} ({scoreStreakMultiplier.toFixed(1)}x)</p>
@@ -170,14 +170,23 @@
             <p>{message}</p>
         </div>
     </div>
-{:else if returnToMainPage === false}
-    <p>Your score was: {score}. Satisfied?</p>
-    <button on:click={() => returnToMainPage = true}>Return to main page</button>
 {:else}
-    <Page/>
+    <EndScreen finalScore={score}/>
 {/if}
 
 <style>
+    .content {
+        color: #FFFFFF;
+        font-size: 26px;
+        font-weight: bold;
+        text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+        position: relative;
+        z-index: 100;
+        margin: auto;
+        text-align: center;
+        width: 50%;
+    }
+
     #wrapper {
         position: relative;
         width: 100%;
@@ -197,22 +206,11 @@
         z-index: -100;
     }
 
-    #content {
-        color: #FFFFFF;
-        font-size: 26px;
-        font-weight: bold;
-        text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
-        position: relative;
-        z-index: 100;
-        margin: auto;
-        text-align: center;
-        width: 50%;
-    }
-
     #btn {
         margin: 20px;
         width: 100px;
         height: 100px;
         font-size: 20px;
     }
+
 </style>
