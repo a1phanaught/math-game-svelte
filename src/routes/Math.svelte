@@ -31,7 +31,7 @@
         let operation = getRandomOperation(2);
         
         resultValue = getResultValue(operation, rightValue, leftValue);
-        questionString = rightValue + operation + leftValue;
+        questionString = rightValue + " " + operation + " " + leftValue;
 
         for (let i = 0; i < 4; i++) {
             if (i == randomIndex) 
@@ -39,7 +39,7 @@
             else {
                 let val = getRandomInt(1,20);
                 // just wanna make sure that the answers do not repeat
-                val = answers.includes(val) ? -val : val;
+                val = answers.includes(resultValue + val) ? -val : val;
                 if (answers.includes(resultValue + val)) val+1;
                 answers.push(resultValue + val);
             }   
@@ -53,7 +53,7 @@
         let leftValue;
         let rightValue;
 
-        if (operation == "*") {
+        if (operation == "x") {
             leftValue = getRandomInt(1, 20);
             rightValue = getRandomInt(1, 20);
         }
@@ -63,7 +63,31 @@
         }
 
         resultValue = getResultValue(operation, rightValue, leftValue);
-        questionString = rightValue + operation + leftValue;
+        questionString = rightValue + " " + operation + " " + leftValue;
+
+        for (let i = 0; i < 4; i++) {
+            if (i == randomIndex) 
+                answers.push(resultValue);
+            else {
+                // Let's confuse them, yeah?
+                let val = getRandomInt(0,1) ? 10 : -10;
+                val = answers.includes(resultValue + val) ? -val : val;
+                if (answers.includes(resultValue + val)) val = 5;
+                answers.push(resultValue + val);
+            }   
+        }
+
+    }
+
+    function setHardQuestionAndAnswers() {
+        let randomIndex = getRandomInt(0, 3);
+        let operation = getRandomOperation(4);
+        let leftValue = getRandomInt(10, 100);
+        let rightValue = getRandomInt(10, 100);
+
+        resultValue = getResultValue(operation, rightValue, leftValue);
+        if (operation == "/") resultValue = parseFloat(resultValue.toFixed(2));
+        questionString = rightValue + " " + operation + " " + leftValue;
 
         for (let i = 0; i < 4; i++) {
             if (i == randomIndex) 
@@ -108,8 +132,7 @@
                     setMediumQuestionAndAnswers();
                     break;
                 case "hard":
-                    alert("Not yet available. Sorry!");
-                    gameEnd();
+                    setHardQuestionAndAnswers();
             }
 
             // Wait for a question to be chosen by player at a given duration
@@ -188,7 +211,7 @@
     #wrapper {
         position: relative;
         width: 100%;
-        height: 720px;
+        height: 1000px;
         z-index: 0;
         background-color: maroon;
     }
@@ -205,7 +228,7 @@
     }
 
     .btn {
-        margin: 20px;
+        margin: 10px;
         width: 100px;
         height: 100px;
         font-size: 20px;

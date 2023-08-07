@@ -11,7 +11,7 @@
         switch (random) {
             case 1: return "+"; break;
             case 2: return "-"; break;
-            case 3: return "*"; break;
+            case 3: return "x"; break;
             case 4: return "/"; break;
         }
 
@@ -26,7 +26,7 @@
                 return rVal + lVal;
             case "-":
                 return rVal - lVal;
-            case "*":
+            case "x":
                 return rVal * lVal;
             case "/":
                 return rVal / lVal;
