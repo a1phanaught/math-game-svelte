@@ -24,16 +24,12 @@
         switch (operation) {
             case "+":
                 return rVal + lVal;
-                break;
             case "-":
                 return rVal - lVal;
-                break;
             case "*":
                 return rVal * lVal;
-                break;
             case "/":
                 return rVal / lVal;
-                break;
         }
     }
 

@@ -10,7 +10,15 @@
         <div class="content">
             <br>
             <br>
-            <p>Your score was: {finalScore}. Satisfied?</p>
+            {#if finalScore < 1000}
+                <p>Your score was: {finalScore}. Could be better...</p>
+            {:else if finalScore < 3000}
+                <p>Your score was: {finalScore}. That was pretty nice!</p>
+            {:else if finalScore < 10000}
+                <p>Your score was: {finalScore}. Astounding!</p>
+            {:else}
+                <p>Your score was: {finalScore}. You're unstoppable!</p>
+            {/if}
             <button on:click={() => returnToMainPage = true}>Return to main page</button>
         </div>
     </div>

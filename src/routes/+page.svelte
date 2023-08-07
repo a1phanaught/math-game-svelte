@@ -27,9 +27,9 @@
         <br>
         <h2>Mental Arithmetic?</h2>
         <p>How well do you fare in mental math?</p>
-        <button on:click = {startGameEasy}>Beginner (High School Student)</button>
-        <button on:click = {startGameMedium}>Intermediate (Accountant)</button>
-        <button on:click = {startGameHard}>Expert (Asian)</button>
+        <button class="btn" on:click = {startGameEasy}>Beginner (Student)</button>
+        <button class="btn" on:click = {startGameMedium}>Intermediate (Accountant)</button>
+        <button class="btn" on:click = {startGameHard}>Expert (Asian)</button>
     </div>
 {:else}
     <Math difficulty={difficultyChosen}></Math>
@@ -41,5 +41,14 @@
         width: 100%;
         height: 100vh;
         text-align: center;
+        font-family: arial,sans-serif;
+        font-size: 30px;
+    }
+
+    .btn {
+        margin: 10px;
+        height: 50px;
+        width: 500px;
+        font-size: 20px;
     }
 </style>

@@ -1,7 +1,6 @@
 <script>
-    import Page from "./+page.svelte";
     import EndScreen from "./EndScreen.svelte";
-    import functions, {getRandomInt, getRandomOperation, getResultValue, sleep} from "./functions.svelte";
+    import {getRandomInt, getRandomOperation, getResultValue, sleep} from "./functions.svelte";
 
     export let difficulty;
     let score = 0.0;
@@ -11,10 +10,9 @@
 
     let scoreStreakMultiplier = 1.0;
     let questionString = "";
-    // HAHAHAHA
     let heartString = "";
-    let resultValue;
-    let answers;
+    let resultValue = 0;
+    let answers = new Array();
     let correct = false;
     let start = true;
     let waitTime = 5000;
@@ -110,6 +108,7 @@
                     setMediumQuestionAndAnswers();
                     break;
                 case "hard":
+                    alert("Not yet available. Sorry!");
                     gameEnd();
             }
 
@@ -163,9 +162,8 @@
             <h3>Lives left: {heartString}</h3>
             <p>Score: {score} ({scoreStreakMultiplier.toFixed(1)}x)</p>
             <h1>{questionString}</h1>
-            <!--<p>{seconds}</p>-->
             {#each answers as ans}
-                <button id="btn" disabled={buttonDisabled} on:click={() => evaluateAnswer(ans)}>{ans}</button>
+                <button class="btn" disabled={buttonDisabled} on:click={() => evaluateAnswer(ans)}>{ans}</button>
             {/each}
             <p>{message}</p>
         </div>
@@ -206,7 +204,7 @@
         z-index: -100;
     }
 
-    #btn {
+    .btn {
         margin: 20px;
         width: 100px;
         height: 100px;
