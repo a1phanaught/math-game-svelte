@@ -180,15 +180,17 @@
 {#if start == true}
     <div id="wrapper">
         <div id="timeBar" style="width: {seconds/waitTime * 100}% !important"></div>
+        
         <div class="content">
+            <div style="clear: both">
+                <h3 style="float: left">Lives left: {heartString}</h3><h3 style="float: right">Score: {score} ({scoreStreakMultiplier.toFixed(1)}x)</h3>
+            </div> 
             <br>
-            <h3>Lives left: {heartString}</h3>
-            <p>Score: {score} ({scoreStreakMultiplier.toFixed(1)}x)</p>
             <h1>{questionString}</h1>
             {#each answers as ans}
                 <button class="btn" disabled={buttonDisabled} on:click={() => evaluateAnswer(ans)}>{ans}</button>
             {/each}
-            <p>{message}</p>
+            <h2>{message}</h2>
         </div>
     </div>
 {:else}
@@ -198,14 +200,14 @@
 <style>
     .content {
         color: #FFFFFF;
-        font-size: 26px;
+        /*font-size: 26px;*/
         font-weight: bold;
         text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
         position: relative;
         z-index: 100;
         margin: auto;
         text-align: center;
-        width: 50%;
+        width: 100%;
     }
 
     #wrapper {
@@ -234,4 +236,13 @@
         font-size: 20px;
     }
 
+    h1 {
+        font-size: 50px;
+    }
+
+    h3 {
+        margin: 10px;
+        color: whitesmoke;
+        font-size: 20px;
+    }
 </style>

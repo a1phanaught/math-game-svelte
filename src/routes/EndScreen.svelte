@@ -44,7 +44,7 @@
         z-index: 100;
         margin: auto;
         text-align: center;
-        width: 50%;
+        width: 100%;
     }
 
     .btn {
