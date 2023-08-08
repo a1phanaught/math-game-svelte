@@ -243,6 +243,6 @@
     h3 {
         margin: 10px;
         color: whitesmoke;
-        font-size: 15px;
+        font-size: min(3vw, 25px);
     }
 </style>
