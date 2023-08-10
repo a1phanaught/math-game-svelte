@@ -8,7 +8,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `${`<div id="startScreen" class="svelte-1l54m2w"><br> <h2 data-svelte-h="svelte-za3817">Mental Arithmetic</h2> <p data-svelte-h="svelte-1vo6yx5">How well do you fare in mental math?</p> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-msmcpz">Beginner (Student)</button> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-1kqroto">Intermediate (Accountant)</button> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-1tw39ez">Expert (Asian)</button></div>`}`;
+  return `${`<div id="startScreen" class="svelte-1l54m2w"><br> <h2 data-svelte-h="svelte-za3817">Mental Arithmetic</h2> <p data-svelte-h="svelte-1vo6yx5">How well do you fare in mental math?</p> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-msmcpz">Beginner (Student)</button> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-1kqroto">Intermediate (Accountant)</button> <button class="btn svelte-1l54m2w" data-svelte-h="svelte-1tw39ez">Expert (Asian)</button> <br> <br> <a href="https://github.com/a1phanaught/math-game-svelte" data-svelte-h="svelte-1uwjt2y"><img src="img/github.png" alt="github.com/a1phanaught" style="width: 30px !important; height: 30px !important; margin: 5px;"></a> <a href="https://svelte.dev" data-svelte-h="svelte-1mc9kba"><img src="img/svelte.png" alt="Powered by Svelte" style="width: 25px !important; height: 30px !important; margin: 5px;"></a></div>`}`;
 });
 export {
   Page as default

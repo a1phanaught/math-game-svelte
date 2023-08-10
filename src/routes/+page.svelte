@@ -30,6 +30,10 @@
         <button class="btn" on:click = {startGameEasy}>Beginner (Student)</button>
         <button class="btn" on:click = {startGameMedium}>Intermediate (Accountant)</button>
         <button class="btn" on:click = {startGameHard}>Expert (Asian)</button>
+        <br>
+        <br>
+        <a href="https://github.com/a1phanaught/math-game-svelte"><img src="img/github.png" alt="github.com/a1phanaught" style="width: 30px !important; height: 30px !important; margin: 5px;"></a>
+        <a href="https://svelte.dev"><img src="img/svelte.png" alt="Powered by Svelte" style="width: 25px !important; height: 30px !important; margin: 5px;"></a>
     </div>
 {:else}
     <Math difficulty={difficultyChosen}></Math>
