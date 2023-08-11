@@ -27,9 +27,9 @@
         <br>
         <h2>Mental Arithmetic</h2>
         <p>How well do you fare in mental math?</p>
-        <button class="btn" on:click = {startGameEasy}>Beginner (Student)</button>
-        <button class="btn" on:click = {startGameMedium}>Intermediate (Accountant)</button>
-        <button class="btn" on:click = {startGameHard}>Expert (Asian)</button>
+        <button class="btn" on:click = {startGameEasy}>Beginner (+, -)</button>
+        <button class="btn" on:click = {startGameMedium}>Intermediate (+, -, x)</button>
+        <button class="btn" on:click = {startGameHard}>Expert (+, -, x, /)</button>
         <br>
         <br>
         <a href="https://github.com/a1phanaught/math-game-svelte"><img src="img/github.png" alt="github.com/a1phanaught" style="width: 30px !important; height: 30px !important; margin: 5px;"></a>
